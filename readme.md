@@ -80,3 +80,8 @@ python runs/run.py --cfg configs/projects/CLIPFSAR/kinetics100/CLIPFSAR_K100_1sh
 ## Citation
 If you find this code useful, please cite our paper.
 
+## Acknowledgement
+
+This project is developed based on [CLIP-FSAR](https://github.com/alibaba-mmai-research/CLIP-FSAR), 
+which is released under the Apache-2.0 License.
+Modifications and newly added components are maintained by the STAR authors.
