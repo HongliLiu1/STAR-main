@@ -1,4 +1,4 @@
-## STAR: Semantic-Temporal-Adaptive-Representation-Learning-for-Few-Shot-Action-Recognition (TCSVT-2026)
+## Semantic-Temporal Adaptive Representation Learning for Few-Shot Action Recognition (TCSVT-2026)
 
 ## Update
 
@@ -7,7 +7,7 @@ Additional STAR models and related resources are coming soon. We are currently o
 <img src = "figures/STAR.png" width="800">
 
 > **Semantic-Temporal Adaptive Representation Learning for Few-Shot Action Recognition**<br>
-> Hongli Liu · Yu Wang<sup>*</sup> · Shengjie Zhao<sup>*</sup><br>
+> Hongli Liu · Yu Wang<sup>\*</sup> &nbsp;· Shengjie Zhao<sup>\*</sup><br>
 > <sup>*</sup> Corresponding author
 >
 >
