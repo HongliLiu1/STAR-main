@@ -1,0 +1,180 @@
+_BASE: ../OTAM_base.yaml
+TASK_TYPE: few_shot_action
+RANDOM_SEED: 18
+TRAIN:
+  ENABLE: true
+  USE_CLASSIFICATION: true
+  USE_CLASSIFICATION_VALUE: 1.5 
+  DATASET: Ssv2_few_shot
+  DATASET_FEW: Kinetics_few_shot
+  META_BATCH: true  # meta or not
+  NUM_SAMPLES: 1000000
+  WAY: 5
+  SHOT: 1
+  QUERY_PER_CLASS: 5
+  QUERY_PER_CLASS_TEST: 1
+  NUM_TRAIN_TASKS: 5000
+  NUM_TEST_TASKS: 10000
+  VAL_FRE_ITER: 100
+  BATCH_SIZE: 4  # Same with NUM_GPUS
+  CLASS_NAME: ['air drumming', 'arm wrestling', 'beatboxing', 'biking through snow', 'blowing glass', 'blowing out candles', 'bowling', 'breakdancing', 'bungee jumping', 'catching or throwing baseball', 'cheerleading', 'cleaning floor', 'contact juggling', 'cooking chicken', 'country line dancing', 'curling hair', 'deadlifting', 'doing nails', 'dribbling basketball', 'driving tractor', 'drop kicking', 'dying hair', 'eating burger', 'feeding birds', 'giving or receiving award', 'hopscotch', 'jetskiing', 'jumping into pool', 'laughing', 'making snowman', 'massaging back', 'mowing lawn', 'opening bottle', 'playing accordion', 'playing badminton', 'playing basketball', 'playing didgeridoo', 'playing ice hockey', 'playing keyboard', 'playing ukulele', 'playing xylophone', 'presenting weather forecast', 'punching bag', 'pushing cart', 'reading book', 'riding unicycle', 'shaking head', 'sharpening pencil', 'shaving head', 'shot put', 'shuffling cards', 'slacklining', 'sled dog racing', 'snowboarding', 'somersaulting', 'squat', 'surfing crowd', 'trapezing', 'using computer', 'washing dishes', 'washing hands', 'water skiing', 'waxing legs', 'weaving basket']
+  CORPUS_LIST: [
+    'moving arms rhythmically as if playing air drums',
+    'gripping hands and applying force in arm wrestling',
+    'producing beat patterns using mouth and vocal sounds',
+    'riding a bicycle steadily through snow-covered ground',
+    'blowing through a pipe to shape molten glass',
+    'blowing out candle flames with bursts of air',
+    'swinging and releasing ball to knock down pins',
+    'performing spins, freezes, and ground-based dance moves',
+    'jumping off a platform and rebounding on a bungee cord',
+    'throwing or catching a baseball repeatedly',
+    'jumping, posing, and lifting in coordinated cheer routines',
+    'scrubbing or wiping the floor in repeated strokes',
+    'rolling a transparent ball smoothly over hands and arms',
+    'turning chicken pieces and cooking over heat',
+    'stepping and kicking in sync with a line dance routine',
+    'wrapping and curling hair using a heated tool',
+    'lifting a barbell from the ground and standing upright',
+    'applying nail polish with controlled hand movements',
+    'dribbling a basketball with continuous hand control',
+    'driving a tractor forward on a flat or bumpy surface',
+    'jumping and kicking forward with both legs in a drop kick motion',
+    'applying dye and brushing through hair repeatedly',
+    'holding and biting into a burger while chewing',
+    'throwing food or seeds and watching birds eat',
+    'handing or receiving an award with accompanying gestures',
+    'hopping between drawn squares in a regular pattern',
+    'riding a jetski across water with steering and balancing',
+    'running and jumping into a swimming pool',
+    'smiling and producing laughter with facial and body motion',
+    'rolling and stacking snow to form a snowman',
+    'pressing, rubbing, or kneading someone’s back',
+    'pushing a lawn mower back and forth over grass',
+    'twisting or pulling to open a bottle cap',
+    'pressing buttons and squeezing bellows to play accordion',
+    'swinging racket and hitting shuttlecock in badminton',
+    'dribbling, passing, or shooting in a basketball play',
+    'blowing into and vibrating lips on a didgeridoo',
+    'skating, passing, and shooting in an ice hockey game',
+    'pressing keys to play notes on a keyboard',
+    'strumming and fingering strings on a ukulele',
+    'striking keys with mallets to play a xylophone',
+    'pointing and gesturing while giving a weather forecast',
+    'punching a hanging bag in repetitive strikes',
+    'pushing a cart forward using hands and arms',
+    'flipping pages or focusing on text while reading a book',
+    'balancing and pedaling a unicycle in motion',
+    'turning head side to side in a repeated motion',
+    'sharpening a pencil by twisting it in a sharpener',
+    'shaving head with clipper or razor in smooth strokes',
+    'spinning and throwing heavy ball in a shot put motion',
+    'shuffling and arranging cards repeatedly',
+    'balancing and walking across a tensioned slackline',
+    'racing with sled dogs across snowy terrain',
+    'sliding down snow-covered slopes on a snowboard',
+    'jumping and rotating body in a full somersault',
+    'squatting down and standing up repeatedly',
+    'being lifted and moved across a crowd while surfing',
+    'swinging and flipping on trapeze bars in the air',
+    'typing, clicking, and using a computer interface',
+    'scrubbing or rinsing dishes with repetitive hand motion',
+    'rubbing hands together with soap and water',
+    'gliding across water on skis while being towed',
+    'spreading and pulling wax before removing leg hair',
+    'weaving strands to form a basket structure',
+  ]
+  BATCH_SIZE_PER_TASK: 4
+  CHECKPOINT_FILE_PATH: ""
+  EVAL_PERIOD: 2
+  NUM_FOLDS: 1
+
+AUGMENTATION:
+  COLOR_AUG: false
+  NO_RANDOM_ERASE: true
+  SUPPORT_QUERY_DIFF: true
+
+TEST:
+  ENABLE: false
+  DATASET: Ssv2_few_shot
+  BATCH_SIZE: 4  # Same with NUM_GPUS
+  TEST_SET: val
+  NUM_ENSEMBLE_VIEWS: 1
+  SPATIAL_CROPS: cctltr
+  CLASS_NAME: ['blasting sand',  'busking',  'cutting watermelon',  'dancing ballet', 'dancing charleston',  'dancing macarena',  'diving cliff', 'filling eyebrows', 'folding paper',  'hula hooping', 'hurling (sport)',  'ice skating',  'paragliding', 'playing drums',  'playing monopoly', 'playing trumpet', 'pushing car', 'riding elephant',  'shearing sheep', 'side kick', 'stretching arm', 'tap dancing', 'throwing axe',  'unboxing']
+  CORPUS_LIST: [
+    'spraying sand with high-pressure blasting equipment',
+    'performing music or acts in public for tips',
+    'slicing a watermelon into pieces with a sharp knife',
+    'performing controlled and graceful ballet dance movements',
+    'dancing with fast-paced kicks and twists in charleston style',
+    'moving arms and hips rhythmically in the macarena dance',
+    'jumping off a high cliff and diving into water',
+    'filling in eyebrow shape using brush or pencil',
+    'folding paper along creases to create shapes or models',
+    'rotating a hoop around waist or limbs in continuous motion',
+    'running, striking, and passing in a hurling game',
+    'gliding and turning on ice using skate blades',
+    'soaring through air while steering a paraglider',
+    'striking drum surfaces rhythmically with sticks',
+    'moving pieces, rolling dice, and managing money in monopoly',
+    'blowing air through trumpet and pressing valves for notes',
+    'pushing a car forward with hands and body force',
+    'riding on the back of an elephant during movement',
+    'cutting and removing wool from sheep using shears',
+    'kicking to the side with one leg in quick motion',
+    'extending arm fully and holding in stretched position',
+    'tapping feet rhythmically on the ground in dance',
+    'throwing an axe forcefully toward a target board',
+    'opening and removing packaging to reveal contents',
+  ]
+  AUTOMATIC_MULTI_SCALE_TEST: false
+  UPLOAD_CLASSIFIER_RESULTS: true
+
+DATA:
+  DATA_ROOT_DIR: /mnt/disk17/liuhongli/downdatas/kinetics/
+  ANNO_DIR: ./configs/projects/CLIPFSAR/kinetics100/
+  NUM_INPUT_FRAMES: 8
+  SAMPLING_RATE: 35
+  SAMPLING_UNIFORM: false
+  TRAIN_JITTER_SCALES: [256, 256]
+  MEAN: [0.48145466, 0.4578275, 0.40821073]
+  STD: [0.26862954, 0.26130258, 0.27577711]
+  TRAIN_CROP_SIZE: 224 # 84  # 224
+  TEST_CROP_SIZE: 224
+  TEST_SCALE: 256
+  CLIP_INTERVAL: 8
+  TEST_CENTER_CROP: true
+  FPS: 12
+  TARGET_FPS: 12
+
+LOG_PERIOD: 50
+SOLVER:
+  BASE_LR: 0.00001
+  LR_POLICY: steps_with_relative_lrs
+  STEPS_ITER: 250 
+  STEPS: [0, 6, 9]
+  LRS: [1, 0.1, 0.01]
+  MAX_EPOCH: 10
+  MOMENTUM: 0.9
+  WEIGHT_DECAY: 5e-4  
+  WARMUP_EPOCHS: 1
+  WARMUP_START_LR: 0.000005
+  OPTIM_METHOD: adam
+  DAMPENING: 0.0
+  NESTEROV: true
+# add bn, use same lr settings as server
+
+VIDEO:
+  HEAD:
+    NAME: CNN_OTAM_CLIPFSAR
+    BACKBONE_NAME: "RN50"
+    
+  BACKBONE:
+    META_ARCH: Identity
+
+
+NUM_GPUS: 2
+OUTPUT_DIR: output/CLIPFSAR_K100_1shot
+
+

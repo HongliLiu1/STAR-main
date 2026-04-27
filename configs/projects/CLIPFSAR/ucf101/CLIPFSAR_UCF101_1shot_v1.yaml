@@ -1,0 +1,182 @@
+_BASE: ../OTAM_base.yaml
+TASK_TYPE: few_shot_action
+TRAIN:
+  ENABLE: true
+  USE_CLASSIFICATION: true
+  USE_CLASSIFICATION_VALUE: 1.5
+  DATASET_FEW: HMDB_few_shot
+  DATASET: Ssv2_few_shot
+  META_BATCH: true  # meta or not
+  NUM_SAMPLES: 1000000
+  WAY: 2
+  SHOT: 1
+  QUERY_PER_CLASS: 2
+  QUERY_PER_CLASS_TEST: 1
+  NUM_TRAIN_TASKS: 3000
+  NUM_TEST_TASKS: 10000
+  VAL_FRE_ITER: 100
+  CLASS_NAME: ['Apply Eye Makeup', 'Archery', 'Baby Crawling', 'Balance Beam', 'Band Marching', 'Baseball Pitch', 'Basketball', 'Basketball Dunk', 'Bench Press', 'Biking', 'Billiards', 'Blow DryHair', 'Body Weight Squats', 'Bowling', 'Boxing Punching Bag', 'Boxing Speed Bag', 'Breast Stroke', 'Brushing Teeth', 'Cricket Bowling', 'Drumming', 'Fencing', 'Field Hockey Penalty', 'Frisbee Catch', 'Front Crawl', 'Haircut', 'Hammering', 'Head Massage', 'Hula Hoop', 'Javelin Throw', 'Juggling Balls', 'Jumping Jack', 'Kayaking', 'Knitting', 'Long Jump', 'Lunges', 'Military Parade', 'Mixing', 'Mopping Floor', 'Nunchucks', 'Parallel Bars', 'Pizza Tossing', 'Playing Cello', 'Playing Dhol', 'Playing Flute', 'Playing Piano', 'Playing Sitar', 'Playing Tabla', 'Playing Violin', 'Pole Vault', 'Pull Ups', 'Push Ups', 'Rafting', 'Rope Climbing', 'Rowing', 'Shaving Beard', 'Skijet', 'Soccer Juggling', 'Soccer Penalty', 'Sumo Wrestling', 'Swing', 'Table Tennis Shot', 'Tai Chi', 'Throw Discus', 'Trampoline Jumping', 'Typing', 'Uneven Bars', 'Walking WithDog', 'Wall Pushups', 'Writing On Board', 'Yo Yo']
+  CORPUS_LIST: [
+    "Applying eyeshadow, eyeliner, or mascara to the eyes",
+    "Drawing a bow and shooting arrows at a target",
+    "Moving forward on hands and knees",
+    "Performing balance and skill movements on a narrow beam",
+    "Marching in formation while playing instruments",
+    "Throwing a baseball towards the batter",
+    "Dribbling, passing, or shooting the ball",
+    "Jumping and slamming the ball into the hoop",
+    "Lifting a barbell while lying on a bench",
+    "Riding a bicycle using pedaling motion",
+    "Striking balls on a billiard table using a cue stick",
+    "Drying and styling hair with a hairdryer",
+    "Lowering the body by bending the knees",
+    "Rolling a ball to knock down pins",
+    "Punching a stationary bag in boxing practice",
+    "Rapidly punching a small, suspended speed bag",
+    "Swimming using frog-like arm and leg movements",
+    "Cleaning teeth with a toothbrush",
+    "Delivering a ball towards a batsman",
+    "Striking drums to produce rhythmic sounds",
+    "Performing sword movements in a fencing duel",
+    "Striking a penalty shot towards the goal",
+    "Catching a flying disc in motion",
+    "Swimming using alternating arm strokes and kicks",
+    "Cutting or trimming hair for styling",
+    "Striking objects repeatedly with a hammer",
+    "Kneading and pressing the head for relaxation",
+    "Spinning a hoop around the waist or limbs",
+    "Throwing a spear-like object for distance",
+    "Tossing and catching multiple balls in succession",
+    "Jumping with legs spread and arms raised",
+    "Paddling a kayak through water",
+    "Creating fabric by intertwining yarn with needles",
+    "Leaping forward for distance from a run",
+    "Stepping forward while lowering the hips",
+    "Marching in synchronized formation",
+    "Combining substances by stirring or blending",
+    "Cleaning the floor using a mop",
+    "Swinging and maneuvering nunchucks",
+    "Performing gymnastic moves on parallel bars",
+    "Tossing dough into the air to stretch it",
+    "Playing melodies on a cello with a bow",
+    "Beating rhythms on a double-sided drum",
+    "Producing music by blowing into a flute",
+    "Pressing keys on a piano to play notes",
+    "Plucking strings on a sitar to create melodies",
+    "Tapping tabla drums to produce rhythmic beats",
+    "Producing sound by bowing the strings of a violin",
+    "Using a pole to leap over a bar",
+    "Pulling the body upward while hanging from a bar",
+    "Raising and lowering the body using arm strength",
+    "Paddling a raft on water currents",
+    "Climbing upward using a suspended rope",
+    "Propelling a boat using oars",
+    "Removing facial hair with a razor",
+    "Riding and steering a watercraft on water",
+    "Keeping a soccer ball in the air with the feet",
+    "Kicking a penalty shot towards the goal",
+    "Pushing or grappling an opponent to the ground",
+    "Moving back and forth on a suspended seat",
+    "Hitting a ball with a table tennis paddle",
+    "Performing slow and flowing Tai Chi movements",
+    "Throwing a heavy disc for distance",
+    "Bouncing repeatedly on a trampoline",
+    "Pressing keys on a keyboard to input text",
+    "Performing gymnastic moves on uneven bars",
+    "Walking while holding a dog's leash",
+    "Performing pushups while leaning against a wall",
+    "Writing or drawing on a chalkboard or whiteboard",
+    "Controlling a yo-yo by tossing and retrieving it"]
+  BATCH_SIZE: 2  # Same with NUM_GPUS
+  BATCH_SIZE_PER_TASK: 4  
+  CHECKPOINT_FILE_PATH: ""
+  EVAL_PERIOD: 2
+  NUM_FOLDS: 1
+
+AUGMENTATION:
+  COLOR_AUG: false
+  NO_RANDOM_ERASE: true
+  
+
+TEST:
+  ENABLE: false
+  DATASET: Ssv2_few_shot
+  CLASS_NAME: ['Blowing Candles', 'Clean And Jerk', 'Cliff Diving', 'Cutting in Kitchen', 'Diving', 'Floor Gymnastics', 'Golf Swing', 'Handstand Walking', 'Horse Race', 'Ice Dancing', 'Jump Rope', 'Pommel Horse', 'Punch', 'Rock Climbing Indoor', 'Salsa Spin', 'Skiing', 'Sky Diving', 'Still Rings', 'Surfing', 'Tennis Swing', 'Volleyball Spiking']
+  CORPUS_LIST: [
+    "Extinguishing candles by blowing air from the mouth",
+    "Lifting a barbell from the ground to the shoulders and overhead",
+    "Jumping off a cliff into water",
+    "Chopping or slicing food items in the kitchen",
+    "Jumping into water and performing controlled acrobatic movements",
+    "Performing floor-based gymnastics routines with flips and tumbles",
+    "Swinging a golf club to hit a ball towards a target",
+    "Walking on the hands with balance and coordination",
+    "Racing horses on a track or field",
+    "Performing choreographed dance moves on ice skates",
+    "Swinging a jump rope repeatedly while jumping over it",
+    "Performing gymnastics maneuvers on a pommel horse apparatus",
+    "Throwing a punch with fists as in boxing or martial arts",
+    "Climbing an artificial rock wall indoors",
+    "Spinning and rotating while dancing salsa",
+    "Gliding down snowy slopes on skis",
+    "Free-falling through the air after jumping from a plane",
+    "Performing gymnastics moves on still rings with strength and control",
+    "Riding ocean waves on a surfboard",
+    "Swinging a tennis racket to hit the ball",
+    "Jumping and striking the ball forcefully over the volleyball net"
+  ]
+  BATCH_SIZE: 2  # Same with NUM_GPUS
+  TEST_SET: val
+  NUM_ENSEMBLE_VIEWS: 1
+  SPATIAL_CROPS: cctltr
+  AUTOMATIC_MULTI_SCALE_TEST: false
+  UPLOAD_CLASSIFIER_RESULTS: true
+
+DATA:
+  DATA_ROOT_DIR: /mnt/disk17/liuhongli/downdatas/UCF101/
+  ANNO_DIR: ./configs/projects/CLIPFSAR/ucf101/
+  NUM_INPUT_FRAMES: 8
+  SAMPLING_RATE: 50 # 50
+  # SAMPLING_RATE_TRAIN: 3
+  SAMPLING_UNIFORM: false
+  TRAIN_JITTER_SCALES: [256, 256]
+  MEAN: [0.48145466, 0.4578275, 0.40821073]
+  STD: [0.26862954, 0.26130258, 0.27577711]
+  TRAIN_CROP_SIZE: 224 # 84  # 224
+  TEST_CROP_SIZE: 224
+  TEST_SCALE: 256
+  TEST_CENTER_CROP: true
+  CLIP_INTERVAL: 8
+  FPS: 12
+  TARGET_FPS: 12
+
+LOG_PERIOD: 50
+SOLVER:
+  BASE_LR: 0.000002
+  LR_POLICY: steps_with_relative_lrs
+  STEPS_ITER: 600
+  STEPS: [0, 4, 6]
+  LRS: [1, 0.1, 0.01]
+  MAX_EPOCH: 10
+  MOMENTUM: 0.9
+  WEIGHT_DECAY: 5e-5
+  WARMUP_EPOCHS: 1
+  WARMUP_START_LR: 0.0000001
+  OPTIM_METHOD: adam
+  DAMPENING: 0.0
+  NESTEROV: true
+# add bn, use same lr settings as server
+
+VIDEO:
+  HEAD:
+    NAME: CNN_OTAM_CLIPFSAR
+    BACKBONE_NAME: "RN50"
+  
+  BACKBONE:
+    META_ARCH: Identity
+
+
+NUM_GPUS: 1
+#OUTPUT_DIR: output/CLIPFSAR_UCF101_1shot_mamba_exp
+OUTPUT_DIR: output/CLIPFSAR_UCF101_1shot
+

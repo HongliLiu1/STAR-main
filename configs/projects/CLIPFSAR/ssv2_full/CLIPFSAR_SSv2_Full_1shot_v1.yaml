@@ -1,0 +1,92 @@
+_BASE: ../OTAM_base.yaml
+TASK_TYPE: few_shot_action
+TRAIN:
+  ENABLE: true
+  USE_CLASSIFICATION: true
+  USE_CLASSIFICATION_VALUE: 3.0
+  DATASET: Ssv2_few_shot
+  META_BATCH: true  # meta or not
+  NUM_SAMPLES: 1000000
+  WAY: 2
+  SHOT: 1
+  QUERY_PER_CLASS: 2
+  QUERY_PER_CLASS_TEST: 1
+  NUM_TRAIN_TASKS: 30000
+  NUM_TEST_TASKS: 10000
+  MAMBA_DEPTH : 2
+  VAL_FRE_ITER: 4000
+  BATCH_SIZE: 2 # Same with NUM_GPUS
+  CLASS_NAME: ['Bending [something] until it breaks', 'Closing [something]', 'Covering [something] with [something]', 'Dropping [something] behind [something]', 'Dropping [something] in front of [something]', 'Dropping [something] into [something]', 'Folding [something]', 'Holding [something]', 'Holding [something] next to [something]', 'Letting [something] roll along a flat surface', 'Letting [something] roll down a slanted surface', 'Lifting a surface with [something] on it but not enough for it to slide down', 'Lifting [something] with [something] on it', 'Moving away from [something] with your camera', 'Moving [something] across a surface until it falls down', 'Moving [something] and [something] closer to each other', 'Moving [something] and [something] so they collide with each other', 'Moving [something] down', 'Moving [something] up', 'Plugging [something] into [something]', 'Poking a hole into [something soft]', "Poking [something] so lightly that it doesn't or almost doesn't move", 'Poking [something] so that it falls over', 'Pouring [something] into [something]', 'Pouring [something] into [something] until it overflows', 'Pouring [something] onto [something]', 'Pretending to be tearing [something that is not tearable]', 'Pretending to close [something] without actually closing it', 'Pretending to pick [something] up', 'Pretending to put [something] next to [something]', 'Pretending to spread air onto [something]', 'Pretending to take [something] out of [something]', 'Pulling [something] onto [something]', 'Pulling two ends of [something] so that it gets stretched', 'Pulling two ends of [something] so that it separates into two pieces', 'Pushing [something] from left to right', 'Pushing [something] off of [something]', 'Pushing [something] so that it falls off the table', 'Pushing [something] so that it slightly moves', 'Putting [number of] [something] onto [something]', 'Putting [something] and [something] on the table', "Putting [something] onto a slanted surface but it doesn't glide down", 'Putting [something] onto [something]', 'Putting [something similar to other things that are already on the table]', 'Showing a photo of [something] to the camera', 'Showing [something] behind [something]', '[Something] colliding with [something] and both are being deflected', 'Spilling [something] next to [something]', 'Spilling [something] onto [something]', 'Spinning [something] that quickly stops spinning', 'Spreading [something] onto [something]', 'Squeezing [something]', 'Stuffing [something] into [something]', 'Taking [something] from [somewhere]', 'Tearing [something] into two pieces', "Tilting [something] with [something] on it slightly so it doesn't fall down", 'Tilting [something] with [something] on it until it falls off', 'Tipping [something] with [something in it] over, so [something in it] falls out', 'Turning the camera downwards while filming [something]', 'Turning the camera left while filming [something]', 'Turning the camera upwards while filming [something]', 'Twisting (wringing) [something] wet until water comes out', 'Twisting [something]', 'Uncovering [something]']
+  CORPUS_LIST: [ 'Bending [something] forcefully until it snaps into two separate pieces', 'Shutting or sealing [something] to enclose or secure it', 'Placing [something] over [something] to conceal or protect it completely', 'Releasing [something] so it falls and lands behind [something]', 'Letting [something] go so it falls and comes to rest in front of [something]', 'Releasing [something] so it falls into [something] like a container or surface', 'Bending or creasing [something] neatly to reduce its size or change its shape', 'Grasping or keeping [something] firmly in your hand or another means of support', 'Keeping [something] close or adjacent to [something] else without letting go', 'Allowing [something] to move freely as it rolls across a level surface', 'Releasing [something] to move and roll down an inclined surface', 'Raising a surface with [something] placed on it gently, ensuring it doesn’t slip off', 'Picking up [something] while it holds or carries [something] on top', 'Backing away from [something] while keeping it in the camera’s frame', 'Pushing or sliding [something] on a surface until it reaches the edge and drops off', 'Shifting the position of [something] and [something] to reduce the distance between them', 'Positioning [something] and [something] so they move toward each other and make contact', 'Shifting [something] in a downward direction', 'Raising [something] in an upward motion', 'Inserting [something] into [something] like a socket to establish a connection', 'Using a pointed object to create a hole in [something soft]', 'Touching [something] gently enough that it remains stationary or moves slightly', 'Prodding [something] with enough force to make it topple over', 'Tilting a container to transfer [something] into [something] else', 'Continuing to pour [something] into [something] until it spills out over the edge', 'Emptying [something] out so it lands on [something] below', 'Acting as if you are tearing [something that is not tearable] without actually damaging it', 'Mimicking the action of shutting [something] but leaving it open', 'Simulating the motion of lifting [something] without actually grasping it', 'Gesturing as if placing [something] near [something] without completing the action', 'Imitating the act of spreading or sprinkling air over [something]', 'Feigning the action of removing [something] from [something] without actually doing it', 'Dragging [something] to position it on top of [something]', 'Tugging at both ends of [something] to elongate or stretch it', 'Exerting force on both ends of [something] until it breaks into two parts', 'Applying force to move [something] from the left side to the right side', 'Forcing [something] to slide off the edge of [something]', 'Applying pressure to [something] until it drops off the edge of a table', 'Exerting minimal force on [something] to cause a small displacement', 'Placing a specific number of [something] on top of [something]', 'Arranging [something] and [something] on the surface of a table', 'Positioning [something] on an incline, ensuring it stays in place without sliding', 'Placing [something] on top of [something] else', 'Adding [something] that matches existing items on a table', 'Holding up a photograph of [something] for the camera to capture', 'Revealing [something] that is positioned behind [something]', '[Something] hitting [something] else, causing both to change direction', 'Accidentally letting [something] pour out and land beside [something]', 'Letting [something] pour out and spread over [something]', 'Turning [something] rapidly and allowing it to slow to a stop', 'Evenly distributing [something] across the surface of [something]', 'Applying pressure to [something], compressing it tightly', 'Forcefully pushing [something] into [something] else until it fits', 'Removing [something] from its original position or location', 'Pulling [something] apart to divide it into two separate parts', 'Angling [something] with [something] on it carefully, keeping it balanced', 'Leaning [something] with [something] on it to the point where the latter slides off', 'Tilting [something] containing [something] else, causing the contents to spill out', 'Angling the camera down to focus on [something] below', 'Rotating the camera to the left to capture [something]', 'Tilting the camera up to focus on [something] above', 'Rotating or squeezing [something] damp to extract water', 'Rotating or coiling [something] around itself or another object', 'Removing a covering or barrier to reveal [something] underneath' ]
+  BATCH_SIZE_PER_TASK: 2
+  CHECKPOINT_FILE_PATH: ""
+  #TEMPORAL_LOSS_WEIGHT : 0.3
+  #WINDOW_SIZE: 1
+  #TEMPORAL_BALANCE: 51.0
+  #BALANCE_COEFFICIENT: 10
+  EVAL_PERIOD: 2
+  NUM_FOLDS: 1
+
+AUGMENTATION:
+  COLOR_AUG: false
+  NO_RANDOM_ERASE: true
+
+TEST:
+  ENABLE: false
+  # CHECKPOINT_FILE_PATH: "/mnt/disk1/liuhongli/CLIP-FSAR-master/output/CLIPFSAR_SSv2_Full_1shot/checkpoints/checkpoint_epoch_00003.pyth"
+  DATASET: Ssv2_few_shot
+  BATCH_SIZE: 2  # Same with NUM_GPUS
+  TEST_SET: val
+  CLASS_NAME: ['Approaching [something] with your camera', 'Digging [something] out of [something]', 'Dropping [something] next to [something]', 'Dropping [something] onto [something]', 'Failing to put [something] into [something] because [something] does not fit', 'Lifting up one end of [something] without letting it drop down', 'Picking [something] up', 'Poking a stack of [something] without the stack collapsing', 'Pouring [something] out of [something]', 'Pretending to open [something] without actually opening it', 'Pretending to put [something] behind [something]', 'Pretending to put [something] into [something]', 'Pretending to put [something] underneath [something]', 'Pretending to sprinkle air onto [something]', 'Pulling [something] from left to right', 'Pulling [something] out of [something]', 'Pushing [something] from right to left', 'Removing [something], revealing [something] behind', 'Showing [something] next to [something]', 'Showing that [something] is empty', 'Spilling [something] behind [something]', 'Taking [something] out of [something]', 'Throwing [something] in the air and letting it fall', 'Tipping [something] over']
+  CORPUS_LIST: [ 'Moving your camera closer to [something], gradually narrowing the distance to capture its details', 'Using hands or tools to excavate and remove [something] from [something]', 'Releasing [something] from your hand so it falls and lands near [something]', 'Letting [something] fall directly onto [something], creating contact between the two', 'Attempting to place [something] into [something], but being unable to succeed because [something] is too small or incompatible', 'Carefully raising one side of [something] while keeping the other side stable and level', 'Grasping and lifting [something] off its resting surface using your hand or another tool', 'Gently prodding a pile of [something] to avoid causing it to fall apart', 'Tilting or inverting [something] to allow its contents to flow out', 'Mimicking the action of opening [something] without altering its closed state', 'Simulating the motion of placing [something] behind [something], but not completing the action', 'Faking the action of inserting [something] into [something] without actually doing so', 'Acting as if placing [something] under [something], but leaving it elsewhere', 'Gesturing as if scattering or sprinkling air over [something]', 'Applying force to [something] to move it across a surface from the left side to the right', 'Using a steady force to extract [something] from [something] that contains or encloses it', 'Exerting pressure on [something] to slide it from the right side to the left', 'Taking away [something] to expose or display [something] that was hidden behind it', 'Positioning [something] beside [something] and highlighting the spatial relationship between them', 'Presenting [something] and demonstrating or confirming that it contains nothing', 'Accidentally or deliberately causing [something] to flow out and land behind [something]', 'Reaching into [something] and removing [something] from within', 'Tossing [something] upward and allowing it to drop back down freely due to gravity', 'Tilting [something] to a degree that causes it to lose balance and fall over' ]
+  NUM_ENSEMBLE_VIEWS: 1
+  SPATIAL_CROPS: cctltr
+  AUTOMATIC_MULTI_SCALE_TEST: false
+  UPLOAD_CLASSIFIER_RESULTS: true
+
+DATA:
+  DATA_ROOT_DIR: /mnt/disk17/liuhongli/downdatas/20bn-something-something-v2_240p/
+  ANNO_DIR: ./configs/projects/CLIPFSAR/ssv2_full/
+  NUM_INPUT_FRAMES: 8
+  SAMPLING_RATE: 50
+  SAMPLING_UNIFORM: false
+  TRAIN_JITTER_SCALES: [256, 256]
+  TRAIN_CROP_SIZE: 224 # 84  # 224
+  TEST_CROP_SIZE: 224
+  MEAN: [0.48145466, 0.4578275, 0.40821073]
+  STD: [0.26862954, 0.26130258, 0.27577711]
+  TEST_SCALE: 256
+  TEST_CENTER_CROP: true
+  CLIP_INTERVAL: 8
+  FPS: 12
+  TARGET_FPS: 12
+
+LOG_PERIOD: 50
+SOLVER:
+  BASE_LR: 3e-5
+  LR_POLICY: steps_with_relative_lrs
+  STEPS_ITER: 4000
+  STEPS: [0, 4, 6]
+  LRS: [1, 0.1, 0.01]
+  MAX_EPOCH: 10
+  MOMENTUM: 0.9
+  WEIGHT_DECAY: 1e-5
+  WARMUP_EPOCHS: 1
+  WARMUP_START_LR: 3e-6
+  OPTIM_METHOD: adam
+  DAMPENING: 0.0
+  NESTEROV: true
+# add bn, use same lr settings as server
+
+VIDEO:
+  HEAD:
+    NAME: CNN_OTAM_CLIPFSAR
+    BACKBONE_NAME: "RN50"
+
+  BACKBONE:
+    META_ARCH: Identity
+
+NUM_GPUS: 1
+OUTPUT_DIR: output/CLIPFSAR_SSv2_Full_1shot
+
+
